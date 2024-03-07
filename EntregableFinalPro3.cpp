@@ -7,7 +7,7 @@
 using namespace std;
 
 const size_t TAM = 10;
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); //se est· utilizando para manipular los colores de la consola, probablemente para dar formato o resaltar cierta informaciÛn al usuario durante la ejecuciÛn del programa.
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); //Se est√° utilizando para manipular los colores de la consola, probablemente para dar formato o resaltar cierta informaci√≥n al usuario durante la ejecuci√≥n del programa.
 
 // Definicion de la clase Libro
 class Libro {
@@ -126,7 +126,7 @@ public:
 	// Metodos de modificacion de los atributos
 	void set_sueldo(double sueldo) { dSueldo = sueldo; }
 };
-// DefiniciÛn de la clase GestorLibros
+// Definici√≥n de la clase GestorLibros
 class GestorLibros {
 private:
 	Libro libros[TAM];
@@ -142,10 +142,10 @@ public:
 		return false; // Si el titulo no esta repetido
 	}
 	void llenado() {
-		string listaTitulo[] = {"Programacion", "Estructuras de Datos", "Desarrollo Web", "Sistemas Operativos", "Software Agil", "Redes", "Matem·ticas Discretas", "Inteligencia Artificial", "Bases de Datos", "RobÛtica"};
+		string listaTitulo[] = {"Programacion", "Estructuras de Datos", "Desarrollo Web", "Sistemas Operativos", "Software Agil", "Redes", "Matem√°ticas Discretas", "Inteligencia Artificial", "Bases de Datos", "Rob√≥tica"};
 		string listaAutor[] = {"Fyodor Dostoevsky", "Leo Tolstoy", "Jane Austen", "Haruki Murakami", "Virginia Woolf", "Ernest Hemingway", "Agatha Christie", "Albert Camus", "Toni Morrison", "Margaret Atwood"};
-		string listaidioma[] = {"EspaÒol", "Ingles", "Aleman", "Catalan", "Frances", "Italiano", "Guarani", "Portugues", "Mandarin", "Japones"};
-		srand(time(nullptr)); // Inicializar la semilla del generador de n˙meros aleatorios
+		string listaidioma[] = {"Espa√±ol", "Ingles", "Aleman", "Catalan", "Frances", "Italiano", "Guarani", "Portugues", "Mandarin", "Japones"};
+		srand(time(nullptr)); // Inicializar la semilla del generador de n√∫meros aleatorios
 		TAMActual = 0; // Reiniciar el contador para llenado desde el principio
 		for (int i = 0; i < TAM; i++) {
 			string tituloAleatorio;
@@ -156,9 +156,9 @@ public:
 			int isbnAleatorio = i + 1;
 			int indiceAutor = rand() % 10;
 			int indiceidioma = rand() % 10;
-			int publicacionAleatoria = rand() % 25 + 1999; // AÒos entre 1999 y 2024
+			int publicacionAleatoria = rand() % 25 + 1999; // A√±os entre 1999 y 2024
 			double precioAleatorio = rand() % 100 + 10; // Precios entre 10 y 109
-			int calificacionAleatoria = rand() % 10 + 1; // N˙meros aleatorios entre 1 y 10
+			int calificacionAleatoria = rand() % 10 + 1; // N√∫meros aleatorios entre 1 y 10
 			string AutorAleatorio = listaAutor[indiceAutor];
 			string idiomaAleatorio = listaidioma[indiceidioma];
 			libros[i] = Libro(isbnAleatorio, tituloAleatorio,AutorAleatorio , publicacionAleatoria,idiomaAleatorio , precioAleatorio, calificacionAleatoria);
@@ -173,13 +173,13 @@ public:
 		}
 		//imprimir datos de los libros
 		
-		cout << setw(2) << right << "ISBN" << setw(10) << "TITULO" << setw(24) << "AUTOR" << setw(24) << "A—O" << setw(13) << "IDIOMA" << setw(15) << "PRECIO" << setw(17) << "Calificacion" << endl;
+		cout << setw(2) << right << "ISBN" << setw(10) << "TITULO" << setw(24) << "AUTOR" << setw(24) << "A√ëO" << setw(13) << "IDIOMA" << setw(15) << "PRECIO" << setw(17) << "Calificacion" << endl;
 		SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
 		for (int i = 0; i < TAMActual; i++) {
 			cout << left << setw(8) << libros[i].get_ISBN() << setw(25) << libros[i].get_Titulo() << setw(25) << libros[i].get_Autor() << setw(11) << libros[i].get_Publicacion() << setw(15) << libros[i].get_idioma() << setw(3) << libros[i].get_Precio()<< setw(10)<< "$" << setw(2) << libros[i].get_calificacion()<<"/10" << std::endl;
 		}
 	}
-	// FunciÛn para mostrar los datos de los libros en forma de bloque
+	// Funci√≥n para mostrar los datos de los libros en forma de bloque
 	void mostrar(string bloque) const {
 		if (TAMActual == 0) { // Verifica si no hay libros llenados
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
@@ -194,7 +194,7 @@ public:
 			cout << "ISBN: " << libros[i].get_ISBN() << endl;
 			cout << "TITULO: " << libros[i].get_Titulo() << endl; 
 			cout << "AUTOR: " << libros[i].get_Autor() << endl;
-			cout << "A—O: " << libros[i].get_Publicacion() << endl; 
+			cout << "A√ëO: " << libros[i].get_Publicacion() << endl; 
 			cout << "IDIOMA: " << libros[i].get_idioma() << endl; 
 			cout << "PRECIO: " << libros[i].get_Precio() <<" $"<< endl;
 			cout << "CALIFICACION: " << libros[i].get_calificacion() << "/10"<< endl << endl;
@@ -211,10 +211,10 @@ public:
 	}
 	// Funcion recursiva para buscadou libros por titulo
 	void buscadou(int indice, int fin, const string& busqueda) const {
-		bool libroEncontrado = false; // Bandera para verificar si se encontrÛ al menos un libro
+		bool libroEncontrado = false; // Bandera para verificar si se encontr√≥ al menos un libro
 		
 		if (indice < fin) { //condicion base
-			// Convertir a min˙sculas los atributos del libro y la cadena de b˙squeda
+			// Convertir a min√∫sculas los atributos del libro y la cadena de b√∫squeda
 			string tituloMinuscula = convertir(libros[indice].get_Titulo());
 			string autorMinuscula = convertir(libros[indice].get_Autor());
 			string idiomaMinuscula = convertir(libros[indice].get_idioma());
@@ -223,21 +223,21 @@ public:
 			
 			if (indice == 0) { //mostrar el encabezado de la tabla
 				SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
-				cout << setw(2) << right << "ISBN" << setw(10) << "TITULO" << setw(24) << "AUTOR" << setw(24) << "A—O" << setw(13) << "IDIOMA" << setw(15) << "PRECIO" << setw(17) << "Calificacion" << endl;
+				cout << setw(2) << right << "ISBN" << setw(10) << "TITULO" << setw(24) << "AUTOR" << setw(24) << "A√ëO" << setw(13) << "IDIOMA" << setw(15) << "PRECIO" << setw(17) << "Calificacion" << endl;
 			}
 			
-			// Verificar si la b˙squeda coincide con el tÌtulo, autor, idioma o precio
+			// Verificar si la b√∫squeda coincide con el t√≠tulo, autor, idioma o precio
 			if (tituloMinuscula.find(busquedaMinuscula) != string::npos || autorMinuscula.find(busquedaMinuscula) != string::npos || idiomaMinuscula.find(busquedaMinuscula) != string::npos || precioStr.find(busquedaMinuscula) != string::npos) {
 				SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
-				//imprimir los datos de los libros que coincidan con la b˙squeda
+				//imprimir los datos de los libros que coincidan con la b√∫squeda
 				cout << left << setw(8) << libros[indice].get_ISBN() << setw(25) << libros[indice].get_Titulo() << setw(25) << libros[indice].get_Autor() << setw(11) << libros[indice].get_Publicacion() << setw(15) << libros[indice].get_idioma() << setw(3) << libros[indice].get_Precio()<< setw(10)<< "$" << setw(2) << libros[indice].get_calificacion()<<"/10" << std::endl;
-				libroEncontrado = true; // Se encontrÛ al menos un libro
+				libroEncontrado = true; // Se encontr√≥ al menos un libro
 			}
 			
 			buscadou(indice + 1, fin, busqueda); // Llamada recursiva con el siguiente libro
 		}
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
-		// Si no se encontrÛ ning˙n libro en toda la b˙squeda y estamos en el ˙ltimo registro, emitir un mensaje
+		// Si no se encontr√≥ ning√∫n libro en toda la b√∫squeda y estamos en el √∫ltimo registro, emitir un mensaje
 		if (!libroEncontrado && indice == fin - 1) {
 			cout << "Libro no encontrado" << endl;
 		}
@@ -254,7 +254,7 @@ public:
 	void llenado() { // Funcion para llenado el arreglo de usuarios con datos aleatorios
 		string listaNombres[] = {"Ever", "Carmen", "Diego", "Isabel", "Eliana", "Naty", "Roberto", "Lucia", "Daniel", "Paula"};
 		string listaApellidos[] = {"Zabala", "Villa", "Fernandez", "Narvaez", "Cifuentes", "Hernando", "Aguirre", "Urrutia", "Pusy", "Gomez"};
-		srand(time(nullptr)); // Inicializar la semilla del generador de n˙meros aleatorios
+		srand(time(nullptr)); // Inicializar la semilla del generador de n√∫meros aleatorios
 		TAMActual = 0; // Reiniciar el contador para llenado desde el principio
 		for (int i = 0; i < TAM; ++i) {
 			int indiceNombre = rand() % 10; //generacion de numero randomico de 0 al 9
@@ -282,7 +282,7 @@ public:
 			cout << left << setw(15) << usuarios[i].get_ID() << setw(15) << usuarios[i].get_Nombre() << setw(15) << usuarios[i].get_Apellido() << setw(30) << usuarios[i].get_correo() << setw(15) << usuarios[i].get_cedula() << endl;
 		}
 	}
-	// FunciÛn para mostrar los datos de los usuarios en forma de bloques
+	// Funci√≥n para mostrar los datos de los usuarios en forma de bloques
 	void mostrar(string bloque) const {
 		if (TAMActual == 0) { // Verificar si no hay usuarios para mostrar
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
@@ -312,11 +312,11 @@ public:
 	}
 	// Funcion recursiva para buscadou usuarios por nombre, apellido o nombre completo
 	void buscadou(int inicio, int fin, const string& busqueda) const {
-		bool usuarioEncontrado = false; // Bandera para verificar si se encontrÛ al menos un usuario
+		bool usuarioEncontrado = false; // Bandera para verificar si se encontr√≥ al menos un usuario
 		
 		if (inicio < fin) {  //condicion base
-			// Convertir a min˙sculas los atributos del usuario y la cadena de b˙squeda
-			string nombreMinuscula = convertir(usuarios[inicio].get_Nombre()); //convertir las cadenas a min˙sculas
+			// Convertir a min√∫sculas los atributos del usuario y la cadena de b√∫squeda
+			string nombreMinuscula = convertir(usuarios[inicio].get_Nombre()); //convertir las cadenas a min√∫sculas
 			string apellidoMinuscula = convertir(usuarios[inicio].get_Apellido());
 			string correoMinuscula = convertir(usuarios[inicio].get_correo());
 			string cedulaStr = to_string(usuarios[inicio].get_cedula());
@@ -327,18 +327,18 @@ public:
 				cout << setw(5) << right << "USER ID" << setw(14) << "NOMBRE" << setw(17) << "APELLIDO" << setw(12) << "CORREO" << setw(32) << "CEDULA" << endl;
 			}
 			
-			// Verifica si la b˙squeda coincide con el nombre, apellido o nombre completo
+			// Verifica si la b√∫squeda coincide con el nombre, apellido o nombre completo
 			if (nombreMinuscula.find(busquedaMinuscula) != string::npos || apellidoMinuscula.find(busquedaMinuscula) != string::npos || (nombreMinuscula + " " + apellidoMinuscula).find(busquedaMinuscula) != string::npos || correoMinuscula.find(busquedaMinuscula) != string::npos || cedulaStr.find(busquedaMinuscula) != string::npos){
 				SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
-				// Imprimir los datos del usuario que coincidan con la b˙squeda
+				// Imprimir los datos del usuario que coincidan con la b√∫squeda
 				cout << left << setw(15) << usuarios[inicio].get_ID() << setw(15) << usuarios[inicio].get_Nombre() << setw(15) << usuarios[inicio].get_Apellido() << setw(30) << usuarios[inicio].get_correo() << setw(15) << usuarios[inicio].get_cedula() << endl;
-				usuarioEncontrado = true; // Se encontrÛ al menos un usuario
+				usuarioEncontrado = true; // Se encontr√≥ al menos un usuario
 			}
 			
 			buscadou(inicio + 1, fin, busqueda); //llamada recursiva con el siguiente usuario
 		}
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
-		// Si no se encontrÛ ning˙n usuario en toda la b˙squeda y estamos en el ˙ltimo registro, emitir un mensaje
+		// Si no se encontr√≥ ning√∫n usuario en toda la b√∫squeda y estamos en el √∫ltimo registro, emitir un mensaje
 		if (!usuarioEncontrado && inicio == fin - 1) {
 			cout << "Usuario no encontrado" << endl;
 		}
@@ -354,10 +354,10 @@ private:
 	int TAMActual;
 public:
 	GestorBibliotecarios() : TAMActual(0) {}
-	void llenado() { // FunciÛn para llenado el arreglo de bibliotecarios con datos aleatorios
-		string listaNombres[] = {"Ezequiel", "Marisol", "RocÌo", "Maxi", "Valy", "Leandro", "Azul", "Dami·n", "Ariadna", "Ciro"};
+	void llenado() { // Funci√≥n para llenado el arreglo de bibliotecarios con datos aleatorios
+		string listaNombres[] = {"Ezequiel", "Marisol", "Roc√≠o", "Maxi", "Valy", "Leandro", "Azul", "Dami√°n", "Ariadna", "Ciro"};
 		string listaApellidos[] = {"Mandia", "Brambila", "Valle", "Benas", "Hung", "Luna", "Cortez", "Castilla", "Lobre", "Albizu"};
-		srand(time(nullptr)); // Inicializar la semilla del generador de n˙meros aleatorios
+		srand(time(nullptr)); // Inicializar la semilla del generador de n√∫meros aleatorios
 		TAMActual = 0; // Reiniciar el contador para llenado desde el principio
 		for (int i = 0; i < TAM; ++i) {
 			int indiceNombre = rand() % 10; //generar numero randomico del 0 al 9
@@ -383,7 +383,7 @@ public:
 			cout << left << setw(15) << bibliotecarios[i].get_ID() << setw(15) << bibliotecarios[i].get_Nombre() << setw(15) << bibliotecarios[i].get_Apellido() << setw(30) << bibliotecarios[i].get_correo() << bibliotecarios[i].get_Sueldo() << " BOB" << endl;
 		}
 	}
-	// FunciÛn para mostrar los datos de los bibliotecarios en forma de bloques
+	// Funci√≥n para mostrar los datos de los bibliotecarios en forma de bloques
 	void mostrar(string bloque) const {
 		if (TAMActual == 0) {  // Verificar si no hay bibliotecarios para mostrar
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
@@ -411,10 +411,10 @@ public:
 	}
 	// Funcion recursiva para buscadou bibliotecarios por nombre, apellido o nombre completo
 	void buscadou(int inicio, int fin, const string& busqueda) const {
-		bool bibliotecarioEncontrado = false; // Bandera para verificar si se encontrÛ al menos un bibliotecario
+		bool bibliotecarioEncontrado = false; // Bandera para verificar si se encontr√≥ al menos un bibliotecario
 		
 		if (inicio < fin) { //condicion base
-			// Convertir a min˙sculas los atributos del bibliotecario y la cadena de b˙squeda
+			// Convertir a min√∫sculas los atributos del bibliotecario y la cadena de b√∫squeda
 			string nombreMinuscula = convertir(bibliotecarios[inicio].get_Nombre());
 			string apellidoMinuscula = convertir(bibliotecarios[inicio].get_Apellido());
 			string correoMinuscula = convertir(bibliotecarios[inicio].get_correo());
@@ -426,19 +426,19 @@ public:
 				cout << setw(5) << right << "EMPLEADO ID" << setw(10) << "NOMBRE" << setw(17) << "APELLIDO" << setw(12) << "CORREO" << setw(32) << "SUELDO" << endl;
 			}
 			
-			// Verifica si la b˙squeda coincide con el nombre, apellido o nombre completo
+			// Verifica si la b√∫squeda coincide con el nombre, apellido o nombre completo
 			if (nombreMinuscula.find(busquedaMinuscula) != string::npos || apellidoMinuscula.find(busquedaMinuscula) != string::npos || (nombreMinuscula + " " + apellidoMinuscula).find(busquedaMinuscula) != string::npos || correoMinuscula.find(busquedaMinuscula) != string::npos || sueldoStr.find(busquedaMinuscula) != string::npos) {
 				SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
-				// Imprimir los datos del bibliotecario que coincidan con la b˙squeda
+				// Imprimir los datos del bibliotecario que coincidan con la b√∫squeda
 				cout << left << setw(15) << bibliotecarios[inicio].get_ID() << setw(15) << bibliotecarios[inicio].get_Nombre() << setw(15) << bibliotecarios[inicio].get_Apellido() << setw(30) << bibliotecarios[inicio].get_correo() << bibliotecarios[inicio].get_Sueldo() << " BOB" << endl;
-				bibliotecarioEncontrado = true; // Se encontrÛ al menos un bibliotecario
+				bibliotecarioEncontrado = true; // Se encontr√≥ al menos un bibliotecario
 			}
 			
 			buscadou(inicio + 1, fin, busqueda); //llamada recursiva con el siguiente bibliotecario
 		}
 		
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
-		// Si no se encontrÛ ning˙n bibliotecario en toda la b˙squeda y estamos en el ˙ltimo registro, emitir un mensaje
+		// Si no se encontr√≥ ning√∫n bibliotecario en toda la b√∫squeda y estamos en el √∫ltimo registro, emitir un mensaje
 		if (!bibliotecarioEncontrado && inicio == fin - 1) {
 			cout << "Bibliotecario no encontrado" << endl;
 		}
@@ -535,7 +535,7 @@ void menuBusqueda(GestorLibros& gestorL, GestorUsuarios& gestorU, GestorBibliote
 			cout << "Ingrese el titulo del libro que desea buscadou: ";
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
 			cin.ignore(); // Limpiar el buffer de entrada
-			getline(cin, sBusquedaLi); // Leer la cadena de b˙squeda
+			getline(cin, sBusquedaLi); // Leer la cadena de b√∫squeda
 			
 			cout << "\nResultados de la busqueda:" << endl;
 			SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
@@ -549,7 +549,7 @@ void menuBusqueda(GestorLibros& gestorL, GestorUsuarios& gestorU, GestorBibliote
 			cout << "Ingrese el nombre, apellido o nombre completo: ";
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
 			cin.ignore(); // Limpiar el buffer de entrada
-			getline(cin, sBusquedaU); // Leer la cadena de b˙squeda
+			getline(cin, sBusquedaU); // Leer la cadena de b√∫squeda
 			SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
 			cout << "\nResultados de la busqueda:" << endl;
 			gestorU.buscadou(0, TAM, sBusquedaU); // Realizar la busqueda de usuarios
@@ -562,7 +562,7 @@ void menuBusqueda(GestorLibros& gestorL, GestorUsuarios& gestorU, GestorBibliote
 			cout << "Ingrese el nombre, apellido o nombre completo: ";
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED );
 			cin.ignore(); // Limpiar el buffer de entrada
-			getline(cin, sBusquedaB); // Leer la cadena de b˙squeda
+			getline(cin, sBusquedaB); // Leer la cadena de b√∫squeda
 			SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN );
 			cout << "\nResultados de la busqueda:" << endl;
 			gestorB.buscadou(0, TAM, sBusquedaB); // Realizar la busqueda de usuarios
@@ -626,7 +626,7 @@ int main() {
 	GestorLibros gestorL;
 	GestorUsuarios gestorU;
 	GestorBibliotecarios gestorB;
-	// Llamar a la funciÛn del men˙ principal, pasando los gestores como argumentos
+	// Llamar a la funci√≥n del men√∫ principal, pasando los gestores como argumentos
 	menuPrincipal(gestorL, gestorU, gestorB);
 	
 	
